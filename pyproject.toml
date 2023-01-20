@@ -10,6 +10,7 @@ packages = [{include = "flask_postgres"}]
 python = "^3.9"
 flask = "^2.2.2"
 psycopg2-binary = "^2.9.5"
+python-dotenv = "^0.21.0"
 
 
 [build-system]
