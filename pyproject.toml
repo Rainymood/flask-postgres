@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "flask-postgres"
+version = "0.1.0"
+description = ""
+authors = ["Jan Meppe"]
+readme = "README.md"
+packages = [{include = "flask_postgres"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+flask = "^2.2.2"
+psycopg2-binary = "^2.9.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
