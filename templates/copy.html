@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Share link {% endblock %}</h1>
+<p>
+    Copy the link by clicking on the copy button
+</p>
+
+<textarea id="my_input" rows="1" cols="70">{{ url }}</textarea>
+
+<button onClick='copyToClipboard()' >
+    Copy link
+</button>
+
+<script>
+    function copyToClipboard() {
+        let clip = navigator.clipboard;
+        if (clip === undefined) {
+            console.log(
+                "Upgrade your browser to use the clipboard feature.",
+            );
+        } else {
+            navigator.clipboard.writeText(document.getElementById('my_input').value);
+
+        }
+    }
+</script>
+{% endblock %}

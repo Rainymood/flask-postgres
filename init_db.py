@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
+
 # Connect to flask_db with psycopgg2
 conn = psycopg2.connect(
     host="localhost",
@@ -15,6 +17,24 @@ conn = psycopg2.connect(
 
 # Open a cursor to perform database operations
 cur = conn.cursor()
+
+cur.execute(f"DROP TABLE IF EXISTS requests;")
+cur.execute(
+    f"CREATE TABLE requests (id uuid DEFAULT gen_random_uuid() PRIMARY KEY,"
+    "request_feedback_on text NOT NULL,"
+    "date_added date DEFAULT CURRENT_TIMESTAMP);"
+)
+
+cur.execute(f"INSERT INTO requests (request_feedback_on) VALUES ('I want feedback on nothing.') RETURNING id")
+
+id_of_new_row = cur.fetchone()[0]
+
+cur.execute(f"SELECT * from requests where id = '{id_of_new_row}'")
+
+results = cur.fetchone()
+
+print(results)
+
 
 # Execute a command: this creates a new table
 # DROP TABLE IF EXISTS

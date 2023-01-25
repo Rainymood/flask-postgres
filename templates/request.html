@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Request feedback {% endblock %}</h1>
+    <form method="post">
+        <p>
+            <label for="title">Request feedback</label>
+            <input type="text" name="request_feedback_on"
+                   placeholder="I'm looking for feedback on ...">
+            </input>
+        </p>
+
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+{% endblock %}

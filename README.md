@@ -32,3 +32,9 @@ DB_PASSWORD= ... (see tutorial)
 FLASK_APP=app
 FLASK_DEBUG=TRUE
 ```
+
+# Run
+
+```
+flask run
+```
